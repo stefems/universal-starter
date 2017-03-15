@@ -41,7 +41,7 @@ export class FacebookLoginComponent {
 	}
   doEventStuff();
   doEventStuff(): void {
-    .api(
+    this.fb.api(
       "/391133507586353/events",
       function (response) {
         if (response && !response.error) {
