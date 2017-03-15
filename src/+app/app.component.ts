@@ -40,15 +40,10 @@ export class XLargeDirective {
 })
 
 export class AppComponent {
-  title = 'ftw';
+  title = 'Showstopper';
   venues = null;
 
-
-  /*getVenues(): void {
-    this.venueService.getVenues().then(venues => this.venues = venues);
-  }
-  */
   ngOnInit(): void {
-    this.venues = [{id:1, name:"Hi Dive", url:"u1"}, {id:2, name:"Larimer Lounge", url:"u2"}];
+    this.venues = [{id:1, name:"Hi Dive", url:"https://www.facebook.com/HiDiveDenver/"}, {id:2, name:"Larimer Lounge", url:"https://www.facebook.com/larimerlounge/"}];
   }
 }

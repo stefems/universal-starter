@@ -13,6 +13,7 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
     <!-- button for submission -->
     <input (click)="checkLogin()" type="submit" value="Submit">
   </div>
+  <!-- Like and Share buttons (I guess they work?) -->
   <div class="fb-like"   data-share="true"   data-width="450"   data-show-faces="true">
   </div>
   `,
@@ -38,4 +39,15 @@ export class FacebookLoginComponent {
       (response: FacebookLoginResponse) => console.log(response), (error: any) => console.error(error)
     );
 	}
+  doEventStuff();
+  doEventStuff(): void {
+    .api(
+      "/391133507586353/events",
+      function (response) {
+        if (response && !response.error) {
+          console.log(response);
+        }
+      }
+    );
+  }
 }
