@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-facebook-sdk';
+ 
+@Component({
+  selector: 'facebooklogin',
+  template: `
+  <div class="loginDiv">
+    <p>Log In via {{text}}</p>
+    <!-- input for username -->
+    <input type="text" placeholder="username">
+    <!-- input for password -->
+    <input type="text" placeholder="password">
+    <!-- button for submission -->
+    <input (click)="checkLogin()" type="submit" value="Submit">
+  </div>
+  `,
+  styles: [``],
+  providers: [FacebookService]
+})
+
+export class FacebookLoginComponent {
+
+	text = 'facebook';
+
+	constructor(private fb: FacebookService) {
+		let fbParams: FacebookInitParams = {
+                                   appId: '1928641050691340',
+                                   xfbml: true,
+                                   version: 'v2.8'
+                                   };
+    this.fb.init(fbParams);
+	}
+ 	
+  checkLogin(): void {
+    this.fb.login().then(
+      (response: FacebookLoginResponse) => console.log(response), (error: any) => console.error(error)
+    );
+	}
+}
