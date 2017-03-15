@@ -40,16 +40,17 @@ export class XLargeDirective {
   `,
   providers: [VenueService]
 })
+
 export class AppComponent {
   title = 'ftw';
   venues = Venue[];
 
-  constructor(private venueService: VenueService) { }
 
-  getVenues(): void {
+  /*getVenues(): void {
     this.venueService.getVenues().then(venues => this.venues = venues);
   }
+  */
   ngOnInit(): void {
-    this.getVenues();
+    this.venues = [{id:1, name:"Hi Dive", url:"u1"}, {id:2, name:"Larimer Lounge", url:"u2"}];
   }
 }
