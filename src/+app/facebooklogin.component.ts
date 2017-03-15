@@ -13,6 +13,12 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
     <!-- button for submission -->
     <input (click)="checkLogin()" type="submit" value="Submit">
   </div>
+  <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+  </div>
   `,
   styles: [``],
   providers: [FacebookService]
