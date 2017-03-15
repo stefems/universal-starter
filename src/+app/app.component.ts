@@ -1,7 +1,6 @@
 import { Component, Directive, ElementRef, Renderer, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 import { Venue }          from './venue';
-import { VenueService }   from './venue.service';
 
 //
 /////////////////////////
@@ -37,13 +36,12 @@ export class XLargeDirective {
       <span>{{venue.name}}</span> <a href={{venue.url}}>Page</a>
     </li>
   </ul>
-  `,
-  providers: [VenueService]
+  `
 })
 
 export class AppComponent {
   title = 'ftw';
-  venues = Venue[];
+  venues = null;
 
 
   /*getVenues(): void {
