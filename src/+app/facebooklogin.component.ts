@@ -39,15 +39,11 @@ export class FacebookLoginComponent {
       (response: FacebookLoginResponse) => console.log(response), (error: any) => console.error(error)
     );
 	}
-  
+
   doEventStuff(): void {
-    this.fb.api(
-      "/100000975458441/events",
-      function (response) {
-        if (response && !response.error) {
-          console.log(response);
-        }
-      }
+    this.fb.api("/100000975458441/events").then( function(response) {
+      console.log(response);
+    }
     );
   }
 }
