@@ -12,6 +12,7 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
     <input type="text" placeholder="password">
     <!-- button for submission -->
     <input (click)="checkLogin()" type="submit" value="Submit">
+    <input (click)="doEventStuff()" type="submit" value="eventstuff">
   </div>
   <!-- Like and Share buttons (I guess they work?) -->
   <div class="fb-like"   data-share="true"   data-width="450"   data-show-faces="true">
