@@ -43,7 +43,7 @@ export class FacebookLoginComponent {
 
   doEventStuff(): void {
     this.fb.api("/100000975458441/events").then( function(response) {
-      console.log(response);
+      console.log(response.data);
     }
     );
   }
