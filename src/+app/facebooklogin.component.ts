@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-facebook-sdk';
+import {Router} from '@angular/router';
  
 @Component({
   selector: 'facebooklogin',
   template: `
   <div class="loginDiv">
-    <p>Log In via {{text}}. Status: {{loginStatusMessage}}</p>
+    <p>Log In via {{text}}.</p>
     <input (click)="checkLogin()" type="submit" value="Submit">
   </div>
   `,
@@ -17,6 +18,7 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
 export class FacebookLoginComponent {
 
 	text = 'Facebook';
+  parentRouter = Router;
   loginStatusMessage = 'Not logged in.';
   loginStatus = false;
 
@@ -37,9 +39,7 @@ export class FacebookLoginComponent {
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
-    console.log(this.loginStatusMessage);
-    console.log("Login successful.");
-    //remove this component and add the default calendar one
+    this.parentRouter.navigateByUrl('/events');
   }
   failure(): void {
     console.error("facebook login eror");
