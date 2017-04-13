@@ -39,15 +39,21 @@ export class FacebookLoginComponent {
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
+    this.fb.getLoginStatus().then(function(response) {
+       var token = response.authResponse.accessToken;
+       console.log(token);
+    });
+    //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
-    this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
+    //The code below posts to facebook.
+    //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
     /*this.fb.api(
     "/HiDiveDenver/events?=access_token=1928641050691340|1183e0e5650cf533a262996442f300a5",
     function (response) {
       console.log("trying to find events");
       if (response && !response.error) {
         console.log(response);
-      }*/
+      })*/
   }
   failure(): void {
     console.error("facebook login eror");
