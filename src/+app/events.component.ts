@@ -5,10 +5,14 @@ import { Component } from '@angular/core';
   selector: 'events',
   template: `
     <h1>Events</h1>
+    <input (click)="loadEvents()" type="submit" value="Load Events">
   `
 })
 export class EventsComponent {
   constructor() {
+
+  }
+  loadEvents(): void {
 
   }
 }
