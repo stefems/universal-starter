@@ -2,12 +2,12 @@
 import {Component} from 'angular2/core';
 
 @Component({
-  selector: 'home',
+  selector: 'events',
   template: `
-    <h1>Home</h1>
+    <h1>Events</h1>
   `
 })
-export class Home {
+export class EventsComponent {
   constructor() {
 
   }
