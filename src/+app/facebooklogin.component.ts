@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-facebook-sdk';
-import {Router} from '@angular/router';
- 
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import {routes} from './app.routes';
+
 @Component({
   selector: 'facebooklogin',
   template: `
@@ -18,11 +19,10 @@ import {Router} from '@angular/router';
 export class FacebookLoginComponent {
 
 	text = 'Facebook';
-  parentRouter = Router;
   loginStatusMessage = 'Not logged in.';
   loginStatus = false;
 
-	constructor(private fb: FacebookService) {
+	constructor(private fb: FacebookService, private router: Router,) {
 		let fbParams: FacebookInitParams = {
                                    appId: '1928641050691340',
                                    xfbml: true,
@@ -39,7 +39,7 @@ export class FacebookLoginComponent {
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
-    this.parentRouter.navigateByUrl('/events');
+    this.router.navigate(['/events']);
   }
   failure(): void {
     console.error("facebook login eror");
