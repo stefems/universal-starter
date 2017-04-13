@@ -6,16 +6,7 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
   template: `
   <div class="loginDiv">
     <p>Log In via {{text}}</p>
-    <!-- input for username -->
-    <input type="text" placeholder="username">
-    <!-- input for password -->
-    <input type="text" placeholder="password">
-    <!-- button for submission -->
     <input (click)="checkLogin()" type="submit" value="Submit">
-    <input (click)="doEventStuff()" type="submit" value="eventstuff">
-  </div>
-  <!-- Like and Share buttons (I guess they work?) -->
-  <div class="fb-like"   data-share="true"   data-width="450"   data-show-faces="true">
   </div>
   `,
   styles: [``],
@@ -24,7 +15,7 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
 
 export class FacebookLoginComponent {
 
-	text = 'facebook';
+	text = 'Facebook';
 
 	constructor(private fb: FacebookService) {
 		let fbParams: FacebookInitParams = {
@@ -37,14 +28,13 @@ export class FacebookLoginComponent {
  	
   checkLogin(): void {
     this.fb.login().then(
-      (response: FacebookLoginResponse) => console.log(response), (error: any) => console.error(error)
+      (response: FacebookLoginResponse) => test(), (error: any) => other()
     );
-	}
-
-  doEventStuff(): void {
-    this.fb.api("/100000975458441/events").then( function(response) {
-      console.log(response.data);
+    function test() {
+      console.log("Login successful.")
     }
-    );
+    function other() {
+      console.error("facebook login eror")
+    }
   }
 }
