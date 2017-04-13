@@ -1,5 +1,5 @@
 import { Component, Directive, ElementRef, Renderer, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from '@angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router';
 import {Home} from './home.component.ts';
 import {FacebookLoginComponent} from './facebooklogin.component.ts';
 
