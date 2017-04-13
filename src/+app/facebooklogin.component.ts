@@ -47,8 +47,8 @@ export class FacebookLoginComponent {
       console.log("trying to find events");
       if (response && !response.error) {
         console.log(response);
-      }
-    }*/
+      }*/
+    }
 );
   }
   failure(): void {
