@@ -39,11 +39,11 @@ export class FacebookLoginComponent {
     function success() {
       this.logStatus = "logged in as " + "";
       this.hasInvisibleClass = true;
-      console.log("Login successful.")
+      console.log("Login successful.");
       //remove this component and add the default calendar one
     }
     function failure() {
-      console.error("facebook login eror")
+      console.error("facebook login eror");
       //put text on page showing error
     }
   }
