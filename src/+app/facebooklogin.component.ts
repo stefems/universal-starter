@@ -39,7 +39,7 @@ export class FacebookLoginComponent {
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
-    this.router.navigate(['events']);
+    this.router.navigate(['/events']);
   }
   failure(): void {
     console.error("facebook login eror");
