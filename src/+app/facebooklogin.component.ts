@@ -32,10 +32,10 @@ export class FacebookLoginComponent {
 	}
  	
   checkLogin(): void {
-    this.fb.login().then(
+    this.fb.login({scope: 'publish_actions'}).then(
       (response: FacebookLoginResponse) => this.success(), (error: any) => this.failure()
     );
-  }
+  }  
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
