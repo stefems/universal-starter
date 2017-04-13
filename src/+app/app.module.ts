@@ -27,8 +27,8 @@ import { EventsComponent }  from './events.component';
     HomeModule,
     AboutModule,
     TodoModule,
-    RouterModule.forRoot(routes)
-    //AppRoutingModule
+    RouterModule.forRoot(routes),
+    AppRoutingModule
   ]
 })
 export class AppModule {
