@@ -13,7 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, XLargeDirective } from './app.component';
 import { FacebookLoginComponent }  from './facebooklogin.component';
-import { EventsComponent }  from './eventscomponent.component';
+import { EventsComponent }  from './events.component';
 
 
 @NgModule({

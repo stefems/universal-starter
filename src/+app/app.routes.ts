@@ -4,11 +4,11 @@ Our route config defines all the routes in our application.
 
 import { Routes } from '@angular/router';
 
-import { FacebookloginComponent } from './facebooklogincomponent.component';
-import { EventsComponent } from './eventscomponent.component';
+import { FacebookLoginComponent } from './facebooklogin.component';
+import { EventsComponent } from './events.component';
 
 export const routes: Routes = [
-  { path: '', component: FacebookloginComponent },
+  { path: '', component: FacebookLoginComponent },
   { path: 'events', component: EventsComponent }
 ];
 

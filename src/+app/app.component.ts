@@ -1,7 +1,7 @@
 import { Component, Directive, ElementRef, Renderer, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-import {Routes} from '@angular/router';
-import {Home} from './home.component.ts';
-import {FacebookLoginComponent} from './facebooklogin.component.ts';
+import {FacebookLoginComponent} from './facebooklogin.component';
+import {EventsComponent} from './events.component';
+
 
 //
 /////////////////////////
