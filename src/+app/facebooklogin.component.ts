@@ -48,8 +48,6 @@ export class FacebookLoginComponent {
       if (response && !response.error) {
         console.log(response);
       }*/
-    }
-);
   }
   failure(): void {
     console.error("facebook login eror");
