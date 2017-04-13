@@ -1,6 +1,7 @@
 import { Component, Directive, ElementRef, Renderer, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-
-import { Venue }          from './venue';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Home} from './home.component.ts';
+import {FacebookLoginComponent} from './facebooklogin.component.ts';
 
 //
 /////////////////////////
@@ -28,17 +29,22 @@ export class XLargeDirective {
   styles: [`
 
   `],
+  directives: [ROUTER_DIRECTIVES],
   template: `
   <h1>{{title}}</h1>
-  <facebooklogin></facebooklogin>
-  <ul class="venueList">
+  <router-outlet></router-outlet>
+  <!--ul class="venueList">
     <li *ngFor="let venue of venues">
       <span>{{venue.name}}</span> <a href={{venue.url}}>Page</a>
     </li>
-  </ul>
+  </ul-->
   `
 })
 
+@RouteConfig([
+  { path: '/', name: 'Login', component: FacebookLoginComponent, useAsDefault: true },
+  { path: '/home', name: 'Home', component: Home}
+])
 export class AppComponent {
   title = 'Showstopper';
   venues = null;
