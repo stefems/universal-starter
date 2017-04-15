@@ -42,31 +42,37 @@ export class FacebookLoginComponent {
     this.loginStatus = true;
     this.fb.getLoginStatus().then(function(response) {
        this.token = response.authResponse.accessToken;
-       console.log(this.token);
+       this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
     });
     //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
     //The code below posts to facebook.
     //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
-    this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
   }
   getEvents(URL): void {
       this.fb.api(URL).then(
         function(response) {
           console.log("trying to find events");
-          if (response && !response.error) {
+          if (response && !response.error && response.data != null
+            && typeof response.data != null) {
+
             console.log(response);
 
             for (let i = 0; i < response.data.length; i++) {
               console.log(response.data[i].start_time);
             }
+            if (response.paging.next) {
+              console.log("calling getEvents() again!");
+              this.getEvents(response.paging.next);         
+            }
+            /*
             if (response.paging != null && typeof response.paging != null 
                 && response.paging.next != null && typeof response.paging.next != null
                 && response.paging.next != undefined && typeof response.paging.next != "undefined"
                 ) {
               console.log("calling getEvents() again!");
               this.getEvents(response.paging.next);
-            }
+            }*/
             
           }
         });
