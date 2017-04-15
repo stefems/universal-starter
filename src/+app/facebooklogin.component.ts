@@ -42,9 +42,10 @@ export class FacebookLoginComponent {
     this.loginStatus = true;
     this.fb.getLoginStatus().then(function(response) {
        this.token = response.authResponse.accessToken;
-       let next = this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
-       console.log(next);
-       this.getEvents(next);
+       console.log(this.token);
+       if (this.token != "") { 
+         this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
+       }       
     });
     //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
@@ -63,7 +64,7 @@ export class FacebookLoginComponent {
             for (let i = 0; i < response.data.length; i++) {
               console.log(response.data[i].start_time);
             }
-            return response.paging.next;
+            console.log(response.paging.next);
             /*
             if (response.paging.next) {
               console.log("calling getEvents() again!");
