@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     <h1>Events</h1>
     <input (click)="loadEvents()" type="submit" value="Load Events">
     <h1>Player JavaScript API - simple listener implementation (JS Library agnostic)</h1>
-	<script type="text/javascript" charset="utf-8" src="../soundcloud.player.api.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./soundcloud.player.api.js"></script>
 	<script type="text/javascript" charset="utf-8">
 
 	// ------- a simple auto-play example ----------
