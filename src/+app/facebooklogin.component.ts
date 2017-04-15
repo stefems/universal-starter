@@ -49,9 +49,9 @@ export class FacebookLoginComponent {
   }
   setToken(response): void {
     console.log("setToken()");
-    this.token =  response.authResponse.accessToken;
-    if (this.token != "") { 
-       this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
+    console.log(response.authResponse.accessToken);
+    if (response.authResponse.accessToken != "") { 
+       this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + response.authResponse.accessToken);
     }
   }
   getEvents(URL): void {
