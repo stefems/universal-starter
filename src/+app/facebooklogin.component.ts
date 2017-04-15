@@ -43,9 +43,9 @@ export class FacebookLoginComponent {
     this.fb.getLoginStatus().then(function(response) {
        this.token = response.authResponse.accessToken;
        console.log(this.token);
-       if (this.token != "") { 
+       /*if (this.token != "") { 
          this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
-       }       
+       }  */     
     });
     //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
