@@ -52,7 +52,9 @@ export class FacebookLoginComponent {
       function (response) {
         console.log("trying to find events");
         if (response && !response.error) {
-          console.log(response);
+          for (let i = 0; i < response.data.length; i++) {
+            console.log(response.data[i]);
+          }
         }
       });
   }
