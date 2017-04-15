@@ -21,6 +21,7 @@ export class FacebookLoginComponent {
 	text = 'Facebook';
   loginStatusMessage = 'Not logged in.';
   loginStatus = false;
+  token = "";
 
 	constructor(private fb: FacebookService, private router: Router,) {
 		let fbParams: FacebookInitParams = {
@@ -39,19 +40,18 @@ export class FacebookLoginComponent {
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
-    var token = "";
     this.fb.getLoginStatus().then(function(response) {
-       token = response.authResponse.accessToken;
-       console.log(token);
+       this.token = response.authResponse.accessToken;
+       console.log(this.token);
     });
     //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
     //The code below posts to facebook.
     //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
-    this.getEvents();
+    this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
   }
-  getEvents(): void {
-      this.fb.api("/HiDiveDenver/events?=access_token=1928641050691340|" + token).then(
+  getEvents(URL): void {
+      this.fb.api(URL).then(
         function(response) {
           console.log("trying to find events");
           if (response && !response.error) {
@@ -62,7 +62,7 @@ export class FacebookLoginComponent {
             }
             if (response.paging != null && response.paging.next != null && response.paging.next != "undefined" && response.paging.next != undefined) {
               console.log("calling getEvents() again!");
-              this.getEvents();
+              this.getEvents(response.paging.next);
             }
             
           }
