@@ -42,11 +42,12 @@ export class FacebookLoginComponent {
     this.loginStatus = true;
     this.fb.getLoginStatus().then(
       function(result) {
-        this.setToken(result);
+        //the code below is what gets all of the event data
+        //this.setToken(result);
     }.bind(this));
     
     //The code below successfully navigates to the other page
-    //this.router.navigate(['/events']);
+    this.router.navigate(['/events']);
     //The code below posts to facebook.
     //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
   }
@@ -57,6 +58,7 @@ export class FacebookLoginComponent {
       this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + response.authResponse.accessToken, this);
     }
   }
+  //TODO: Add a date filter to prevent loading of expired events
   getEvents(URL, context): void {
     context.fb.api(URL).then(
       function(response) {
