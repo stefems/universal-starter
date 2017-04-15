@@ -48,12 +48,15 @@ export class FacebookLoginComponent {
     //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
   }
   setToken(response): void {
+    console.log("setToken()");
     this.token =  response.authResponse.accessToken;
     if (this.token != "") { 
        this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
     }
   }
   getEvents(URL): void {
+      console.log("getEvents()");
+      /*
       this.fb.api(URL).then(
         function(response) {
           console.log("trying to find events");
@@ -78,14 +81,15 @@ export class FacebookLoginComponent {
                 ) {
               console.log("calling getEvents() again!");
               this.getEvents(response.paging.next);
-            }*/
+            }
             
           }
           else {
             console.log("no more pagination, fam");
           }
         });
-    }
+        */
+  }
   failure(): void {
     console.error("facebook login eror");
     //put text on page showing error
