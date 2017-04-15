@@ -60,7 +60,10 @@ export class FacebookLoginComponent {
             for (let i = 0; i < response.data.length; i++) {
               console.log(response.data[i].start_time);
             }
-            if (response.paging != null && response.paging.next != null && response.paging.next != "undefined" && response.paging.next != undefined) {
+            if (response.paging != null && typeof response.paging != null 
+                && response.paging.next != null && typeof response.paging.next != null
+                && response.paging.next != undefined && typeof response.paging.next != "undefined"
+                ) {
               console.log("calling getEvents() again!");
               this.getEvents(response.paging.next);
             }
