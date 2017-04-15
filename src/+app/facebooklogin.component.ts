@@ -72,7 +72,7 @@ export class FacebookLoginComponent {
           
           if (response.paging.next) {
             console.log("calling getEvents() again!");
-            context.getEvents(response.paging.next);         
+            context.getEvents(response.paging.next, context);         
           }
           else {
             console.log("next isn't a thing, fam");
