@@ -42,7 +42,7 @@ export class FacebookLoginComponent {
     this.loginStatus = true;
     this.fb.getLoginStatus().then(
       function(result) {
-        this.setToken();
+        this.setToken(result);
     }.bind(this));
     
     //The code below successfully navigates to the other page
