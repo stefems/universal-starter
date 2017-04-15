@@ -40,7 +40,10 @@ export class FacebookLoginComponent {
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
-    this.fb.getLoginStatus().then(this.setToken);
+    this.fb.getLoginStatus().then(
+      function(result) {
+        this.setToken();
+    }.bind(this));
     
     //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
