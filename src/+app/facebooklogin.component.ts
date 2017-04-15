@@ -65,21 +65,14 @@ export class FacebookLoginComponent {
             for (let i = 0; i < response.data.length; i++) {
               console.log(response.data[i].start_time);
             }
-            console.log(response.paging.next);
-            /*
+            
             if (response.paging.next) {
               console.log("calling getEvents() again!");
               this.getEvents(response.paging.next);         
             }
-            
-            if (response.paging != null && typeof response.paging != null 
-                && response.paging.next != null && typeof response.paging.next != null
-                && response.paging.next != undefined && typeof response.paging.next != "undefined"
-                ) {
-              console.log("calling getEvents() again!");
-              this.getEvents(response.paging.next);
-            }*/
-            
+            else {
+              console.log("next isn't a thing, fam");
+            }          
           }
           else {
             console.log("no more pagination, fam");
