@@ -33,24 +33,25 @@ export class FacebookLoginComponent {
 	}
  	
   checkLogin(): void {
-    this.fb.login({scope: 'publish_actions'}).then(
+    this.fb.login().then(
       (response: FacebookLoginResponse) => this.success(), (error: any) => this.failure()
     );
   }  
   success(): void {
     this.loginStatusMessage = "Logged into Facebook.";
     this.loginStatus = true;
-    this.fb.getLoginStatus().then(function(response) {
-       this.token = response.authResponse.accessToken;
-       console.log(this.token);
-       /*if (this.token != "") { 
-         this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
-       }  */     
-    });
+    this.fb.getLoginStatus().then(this.setToken);
+    
     //The code below successfully navigates to the other page
     //this.router.navigate(['/events']);
     //The code below posts to facebook.
     //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
+  }
+  setToken(response): void {
+    this.token =  response.authResponse.accessToken;
+    if (this.token != "") { 
+       this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + this.token);
+    }
   }
   getEvents(URL): void {
       this.fb.api(URL).then(
