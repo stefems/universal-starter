@@ -51,7 +51,38 @@ export class FacebookLoginComponent {
     console.log("setToken()");
     console.log(response.authResponse.accessToken);
     if (response.authResponse.accessToken != "") { 
-       this.getEvents("/HiDiveDenver/events?=access_token=1928641050691340|" + response.authResponse.accessToken);
+      this.fb.api("/HiDiveDenver/events?=access_token=1928641050691340|" + response.authResponse.accessToken).then(
+        function(response) {
+          console.log("trying to find events");
+          if (response && !response.error && response.data != null
+            && typeof response.data != null && response.data.length != 0) {
+
+            console.log(response);
+
+            for (let i = 0; i < response.data.length; i++) {
+              console.log(response.data[i].start_time);
+            }
+            console.log(response.paging.next);
+            /*
+            if (response.paging.next) {
+              console.log("calling getEvents() again!");
+              this.getEvents(response.paging.next);         
+            }
+            
+            if (response.paging != null && typeof response.paging != null 
+                && response.paging.next != null && typeof response.paging.next != null
+                && response.paging.next != undefined && typeof response.paging.next != "undefined"
+                ) {
+              console.log("calling getEvents() again!");
+              this.getEvents(response.paging.next);
+            }*/
+            
+          }
+          else {
+            console.log("no more pagination, fam");
+          }
+        }
+      );
     }
   }
   getEvents(URL): void {
