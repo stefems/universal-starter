@@ -49,12 +49,16 @@ export class FacebookLoginComponent {
     //The code below posts to facebook.
     //this.fb.api('/me/feed', 'post', {message: 'please ignore this status; testing facebook app stuffs' });
     this.fb.api("/HiDiveDenver/events?=access_token=1928641050691340|" + token).then(
-      function (response) {
+      function getEvents(response) {
         console.log("trying to find events");
         if (response && !response.error) {
-          for (let i = 0; i < response.data.length; i++) {
-            console.log(response.data[i]);
-          }
+          console.log(response);
+
+         // if (response.next) {
+            for (let i = 0; i < response.data.length; i++) {
+              console.log(response.data[i].start_time);
+            }
+          //}
         }
       });
   }
