@@ -17,6 +17,12 @@
 </head>
 <body>
   <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="assets/soundcloud.player.api.js"></script>
+  <script type="text/javascript">
+   soundcloud.addEventListener('onPlayerReady', function(player, data) {
+     player.api_play();
+   });
+</script>
   <app>
     Loading Universal ...
   </app>
