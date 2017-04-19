@@ -31,25 +31,19 @@ export class XLargeDirective {
   `],
   template: `
   <h1>{{title}}</h1>
-  <a [routerLink]="['/']">Login</a>
-  <a [routerLink]="['/events']">Events</a>
+  <!--a [routerLink]="['/']">Login</a>
+  <a [routerLink]="['/events']">Events</a-->
   <div class="outer-outlet">
       <router-outlet></router-outlet>
   </div>
-  <!--ul class="venueList">
-    <li *ngFor="let venue of venues">
-      <span>{{venue.name}}</span> <a href={{venue.url}}>Page</a>
-    </li>
-  </ul-->
   `
 })
 
 
 export class AppComponent {
   title = 'Showstopper';
-  venues = null;
+
 
   ngOnInit(): void {
-    this.venues = [{id:1, name:"Hi Dive", url:"https://www.facebook.com/HiDiveDenver/"}, {id:2, name:"Larimer Lounge", url:"https://www.facebook.com/larimerlounge/"}];
   }
 }
