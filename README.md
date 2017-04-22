@@ -10,7 +10,7 @@
   <li>Cool stuff</li>
   <li>Hot stuff</li>
   <li>Tell your friends</li>
-  <li>I'm not ready to show it off it</li>
+  <li>I'm not ready to show it off; don't tell your friends</li>
   <li>Lists</li>
   <li>List of Lists</li>
   <li>Recursion</li>
