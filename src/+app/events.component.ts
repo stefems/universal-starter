@@ -5,7 +5,10 @@ import {FacebookService, FacebookInitParams, FacebookLoginResponse} from 'ng2-fa
 
 // used to get the global soundcloud variable from the imported script in index.html
 declare var SC:any;
+import './.env.js';
+
 declare var fbAppId:any;
+
 
 @Component({
   selector: 'events',
@@ -56,6 +59,7 @@ export class EventsComponent {
 			widget.pause();
 			//widget.load(newsong);
 		});
+		var soundcloud = "http://api.soundcloud.com/playlists/405726?client_id=YOUR_CLIENT_ID";
 
 	}
 	//TODO: Add a date filter to prevent loading of expired events

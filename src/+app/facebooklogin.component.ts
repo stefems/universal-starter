@@ -4,6 +4,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import {routes} from './app.routes';
 import {EventsComponent} from './events.component';
 
+import './.env.js';
+
+declare var fbAppId:any;
+
 
 @Component({
   selector: 'facebooklogin',
@@ -27,7 +31,7 @@ export class FacebookLoginComponent {
 
   constructor(private fb: FacebookService, private router: Router,) {
     let fbParams: FacebookInitParams = {
-                                   appId: '1928641050691340',
+                                   appId: 'fbAppId',
                                    xfbml: true,
                                    version: 'v2.8'
                                    };
